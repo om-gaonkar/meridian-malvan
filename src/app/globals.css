@@ -1,0 +1,324 @@
+@import "tailwindcss";
+
+/*
+  Meridian Malvan: modern coastal theme
+  canvas / surface / mist / line   cool, clean light surfaces
+  ink / ink-soft                   text
+  ocean / ocean-deep / ocean-night deep sea blues (dark sections, links)
+  lagoon                           aqua accent, used on dark
+  sunset / glow                    coral call-to-action and warm light
+*/
+@theme {
+  --color-canvas: #f4f7f6;
+  --color-surface: #ffffff;
+  --color-mist: #e8f0ee;
+  --color-line: #d3dfdc;
+  --color-ink: #0b1f26;
+  --color-ink-soft: #4a5f66;
+  --color-ocean: #0a5c66;
+  --color-ocean-deep: #062c36;
+  --color-ocean-night: #031a21;
+  --color-lagoon: #2dd4bf;
+  --color-sunset: #d2401f;
+  --color-sunset-dark: #b53418;
+  --color-glow: #ffb26b;
+
+  --shadow-soft: 0 10px 30px -14px rgb(6 44 54 / 0.28);
+  --shadow-lift: 0 28px 56px -24px rgb(6 44 54 / 0.4);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    interpolate-size: allow-keywords;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  [id] {
+    scroll-margin-top: 7rem;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ocean);
+    outline-offset: 3px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--color-lagoon);
+  }
+  ::selection {
+    background: var(--color-lagoon);
+    color: var(--color-ocean-night);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Surfaces
+   ------------------------------------------------------------------------- */
+
+.header-glass {
+  background: rgb(255 255 255 / 0.74);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  backdrop-filter: blur(18px) saturate(1.5);
+  border: 1px solid rgb(255 255 255 / 0.7);
+  box-shadow: 0 12px 32px -16px rgb(6 44 54 / 0.4);
+}
+
+.mesh-dark {
+  background:
+    radial-gradient(56rem 28rem at 12% -10%, rgb(45 212 191 / 0.2), transparent 60%),
+    radial-gradient(48rem 30rem at 95% 110%, rgb(210 64 31 / 0.24), transparent 62%),
+    var(--color-ocean-deep);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(64px);
+  pointer-events: none;
+  animation: drift 16s ease-in-out infinite;
+}
+
+.scroll-progress {
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.zoom-frame :is(img, svg) {
+  transition: transform 900ms var(--ease-out-expo);
+}
+.group:hover .scroll-progress {
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.zoom-frame :is(img, svg) {
+  transform: scale(1.06);
+}
+
+.gallery-dialog[open] {
+  animation: pop 320ms var(--ease-out-expo) both;
+}
+
+/* ---------------------------------------------------------------------------
+   Keyframes
+   ------------------------------------------------------------------------- */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes word-rise {
+  from { transform: translateY(112%); }
+  to { transform: none; }
+}
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes menu-in {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes ken-burns {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4%, -6%, 0) scale(1.1); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes scroll-cue {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+@keyframes wave-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-1440px); }
+}
+@keyframes sun-rise {
+  from { transform: translateY(170px); }
+  to { transform: none; }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 1; }
+}
+@keyframes shimmer {
+  from { opacity: 0.12; transform: scaleX(0.7); }
+  to { opacity: 0.75; transform: scaleX(1.06); }
+}
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(44px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes header-solid {
+  from { background-color: rgb(255 255 255 / 0.5); }
+  to { background-color: rgb(255 255 255 / 0.94); }
+}
+
+/* ---------------------------------------------------------------------------
+   Animation classes
+   ------------------------------------------------------------------------- */
+
+/* On-load entrance. --d sets the delay. */
+.anim-fade-up {
+  animation: fade-up 0.95s var(--ease-out-expo) both;
+  animation-delay: var(--d, 0s);
+}
+.anim-pop {
+  animation: pop 0.5s var(--ease-out-expo) both;
+}
+.anim-menu {
+  animation: menu-in 0.25s var(--ease-out-expo) both;
+}
+
+/* Headline words slide up out of a clipped line. --i sets the stagger. */
+.hero-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.hero-word > span {
+  display: inline-block;
+  animation: word-rise 1.05s var(--ease-out-expo) both;
+  animation-delay: calc(var(--i, 0) * 80ms + 150ms);
+}
+
+.ken-burns {
+  animation: ken-burns 26s ease-in-out infinite alternate;
+}
+
+.scroll-cue-bar {
+  animation: scroll-cue 2.2s ease-in-out infinite;
+}
+
+/* Animated placeholder scene (hero) */
+.scene-sun {
+  animation: sun-rise 3.4s var(--ease-out-expo) 0.2s both;
+}
+.scene-glow {
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+.scene-wave {
+  animation: wave-x 24s linear infinite;
+}
+.scene-star {
+  animation: twinkle 3.6s ease-in-out infinite;
+}
+.scene-shimmer {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: shimmer 4s ease-in-out infinite alternate;
+}
+
+/* Marquee band */
+.marquee {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 44s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* FAQ open/close glide (progressive enhancement). */
+details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size 0.35s var(--ease-out-expo),
+    content-visibility 0.35s allow-discrete;
+}
+details[open]::details-content {
+  block-size: auto;
+}
+
+/*
+  Scroll-linked effects use CSS scroll-driven animations. Where unsupported, nothing
+  is hidden: content simply appears without the motion.
+*/
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range:
+      entry calc(var(--i, 0) * 5%)
+      entry calc(40% + var(--i, 0) * 5%);
+  }
+  .scroll-progress {
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+  }
+  .header-glass {
+    animation: header-solid linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 160px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion: no animation anywhere; everything is simply visible.
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-track {
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .marquee-dup {
+    display: none;
+  }
+}
