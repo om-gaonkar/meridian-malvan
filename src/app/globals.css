@@ -87,8 +87,16 @@
 
 .mesh-dark {
   background:
-    radial-gradient(56rem 28rem at 12% -10%, rgb(45 212 191 / 0.2), transparent 60%),
-    radial-gradient(48rem 30rem at 95% 110%, rgb(210 64 31 / 0.24), transparent 62%),
+    radial-gradient(
+      56rem 28rem at 12% -10%,
+      rgb(45 212 191 / 0.2),
+      transparent 60%
+    ),
+    radial-gradient(
+      48rem 30rem at 95% 110%,
+      rgb(210 64 31 / 0.24),
+      transparent 62%
+    ),
     var(--color-ocean-deep);
 }
 
@@ -126,68 +134,147 @@
    ------------------------------------------------------------------------- */
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(26px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 @keyframes word-rise {
-  from { transform: translateY(112%); }
-  to { transform: none; }
+  from {
+    transform: translateY(112%);
+  }
+  to {
+    transform: none;
+  }
 }
 @keyframes pop {
-  from { opacity: 0; transform: scale(0.94); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 @keyframes menu-in {
-  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 @keyframes ken-burns {
-  from { transform: scale(1); }
-  to { transform: scale(1.12); }
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.12);
+  }
 }
 @keyframes drift {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(4%, -6%, 0) scale(1.1); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -6%, 0) scale(1.1);
+  }
 }
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 @keyframes scroll-cue {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
 @keyframes wave-x {
-  from { transform: translateX(0); }
-  to { transform: translateX(-1440px); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-1440px);
+  }
 }
 @keyframes sun-rise {
-  from { transform: translateY(170px); }
-  to { transform: none; }
+  from {
+    transform: translateY(170px);
+  }
+  to {
+    transform: none;
+  }
 }
 @keyframes glow-pulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.08); }
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
 }
 @keyframes twinkle {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 @keyframes shimmer {
-  from { opacity: 0.12; transform: scaleX(0.7); }
-  to { opacity: 0.75; transform: scaleX(1.06); }
+  from {
+    opacity: 0.12;
+    transform: scaleX(0.7);
+  }
+  to {
+    opacity: 0.75;
+    transform: scaleX(1.06);
+  }
 }
 @keyframes reveal-up {
-  from { opacity: 0; transform: translateY(44px) scale(0.98); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(44px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 @keyframes progress {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 @keyframes header-solid {
-  from { background-color: rgb(255 255 255 / 0.5); }
-  to { background-color: rgb(255 255 255 / 0.94); }
+  from {
+    background-color: rgb(255 255 255 / 0.5);
+  }
+  to {
+    background-color: rgb(255 255 255 / 0.94);
+  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -249,8 +336,20 @@
 
 /* Marquee band */
 .marquee {
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
 }
 .marquee-track {
   display: flex;
@@ -281,9 +380,8 @@ details[open]::details-content {
   .reveal {
     animation: reveal-up linear both;
     animation-timeline: view();
-    animation-range:
-      entry calc(var(--i, 0) * 5%)
-      entry calc(40% + var(--i, 0) * 5%);
+    animation-range: entry calc(var(--i, 0) * 5%) entry
+      calc(40% + var(--i, 0) * 5%);
   }
   .scroll-progress {
     animation: progress linear both;

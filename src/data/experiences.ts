@@ -45,10 +45,10 @@ export const experiences: Experience[] = [
     id: "water-sports",
     title: "Snorkelling, scuba and water sports",
     summary:
-      "Independent operators around Tarkarli, Devbag and the fort offer snorkelling, scuba and other water activities.",
+      "Independent operators around Sindhudurg fort, Tarkarli, Devbag and the fort offer snorkelling, scuba and other water activities.",
     details: [
       "Activities are generally available from about October to May, when the sea is calmer. During the monsoon, June to September, rough seas usually suspend them.",
-      "Beginners are catered for at several operators near Tarkarli, with instructors on hand for first-time divers.",
+      "Beginners are catered for at several operators near sindhudurg fort, Tarkarli, with instructors on hand for first-time divers.",
     ],
     goodToKnow:
       "Operators are independent businesses. Meridian Malvan does not run these activities unless this site says so. Carry some cash, as card payments are not always accepted.",

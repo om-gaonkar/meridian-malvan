@@ -9,7 +9,7 @@ import { stagger } from "@/lib/utils";
 export const metadata = createMetadata({
   title: "Contact and booking inquiries",
   description:
-    "Send a booking inquiry to Meridian Malvan in Malvan, Maharashtra, or find the hotel’s contact details.",
+    "Contact Meridian Malvan, Maharashtra, to plan your stay. Call +91 8104000199 or email meridianmalvan@gmail.com for room inquiries and reservations.",
   path: "/contact",
 });
 
@@ -31,7 +31,9 @@ export default function ContactPage() {
               {hasContactDetails() || !siteConfig.isLive ? (
                 <ContactDetails />
               ) : (
-                <p className="text-ink-soft">The inquiry form is the best way to reach the hotel for now.</p>
+                <p className="text-ink-soft">
+                  The inquiry form is the best way to reach the hotel for now.
+                </p>
               )}
             </div>
           </div>

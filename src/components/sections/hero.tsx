@@ -8,17 +8,26 @@ import { SiteImage } from "@/components/ui/site-image";
 import { stagger } from "@/lib/utils";
 import { HeroScene } from "./hero-scene";
 
-const HEADLINE = ["Stay", "in", "Malvan,", "on", "the", "Konkan", "coast"];
-const ACCENT_FROM = 5;
+const HEADLINE = ["Stay", "in", "Malvan,", "near", "Konkan", "coast"];
+const ACCENT_FROM = 4;
 
 export function Hero() {
   return (
-    <section aria-labelledby="hero-title" className="on-dark relative isolate overflow-hidden bg-ocean-night text-white">
+    <section
+      aria-labelledby="hero-title"
+      className="on-dark relative isolate overflow-hidden bg-ocean-night text-white"
+    >
       <div className="absolute inset-0 -z-10">
         {heroImage ? (
           // Likely LCP element: prioritised, never lazy-loaded.
           <div className="ken-burns absolute inset-0">
-            <SiteImage image={heroImage} label="Hero photograph" sizes="100vw" priority rounded="rounded-none" />
+            <SiteImage
+              image={heroImage}
+              label="Hero photograph"
+              sizes="100vw"
+              priority
+              rounded="rounded-none"
+            />
           </div>
         ) : (
           <HeroScene />
@@ -63,7 +72,8 @@ export function Hero() {
           </h1>
 
           <p className="anim-fade-up mt-6 max-w-[48ch] text-lg text-white/80 [--d:0.9s] md:text-xl">
-            Meridian Malvan is a hotel in a town known for its sea fort, its beaches and Malvani cooking.
+            Meridian Malvan is a hotel in a town known for its sea fort, its
+            beaches and Malvani cooking.
           </p>
 
           <div className="anim-fade-up mt-9 flex flex-wrap items-center gap-3 [--d:1.05s]">
