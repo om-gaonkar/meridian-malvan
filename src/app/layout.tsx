@@ -23,7 +23,12 @@ export const metadata: Metadata = {
   title: { default: DEFAULT_TITLE, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  robots: siteConfig.isLive ? { index: true, follow: true } : { index: false, follow: false },
+  robots: siteConfig.isLive
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
+  verification: {
+    google: "IawvWPx4szdlQkJ_1Rcn_ItptgEa8rjXA9GNXt9QBx8",
+  },
 };
 
 export const viewport: Viewport = {
@@ -32,7 +37,11 @@ export const viewport: Viewport = {
   themeColor: "#f4f7f6",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en-IN" className={`${display.variable} ${sans.variable}`}>
       <body>
