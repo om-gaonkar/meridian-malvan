@@ -26,6 +26,6 @@ export const faqs: Faq[] = [
     answer:
       "Water sports and fort boats in Malvan are run by independent local operators. Ask in your inquiry what help the hotel can offer.",
   },
-  { id: "check-in-times", question: "What are the check-in and check-out times?", answer: null },
-  { id: "breakfast", question: "Is breakfast included?", answer: null },
+  { id: "check-in-times", question: "What are the check-in and check-out times?", answer: "Check-in time is 12:30 PM, and check-out time is 10:00 AM." },
+  { id: "breakfast", question: "Is breakfast included?", answer: "No, breakfast is not included." },
 ];

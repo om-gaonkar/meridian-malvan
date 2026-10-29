@@ -106,12 +106,21 @@ export const siteConfig: SiteConfig = {
   // TODO(owner): fill these in with VERIFIED details. Anything left null is
   // hidden on the live site and shown as a "Pending" marker on previews.
   contact: {
-    phone: null,
-    email: null,
-    address: null,
-    geo: null,
-    googleMapsUrl: null,
-    googleMapsEmbedUrl: null,
+    phone: "+91 8104000199",
+    email: "meridianmalvan@gmail.com",
+    address: {
+  streetAddress: "Gadre road", // Sample — replace with actual address
+  locality: "Malvan",
+  region: "Maharashtra",
+  postalCode: "416606", // Verify before publishing
+  countryCode: "IN",
+},
+    geo:  {
+    latitude: 16.048376,
+    longitude: 73.476050,
+  },
+    googleMapsUrl: "https://maps.app.goo.gl/XHtm1sqBVM8bwaXu7",
+    googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d239.64557889975634!2d73.47600325066291!3d16.048394714478242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1793212578010!5m2!1sen!2sin",
   },
   social: {
     instagram: null,
@@ -120,7 +129,7 @@ export const siteConfig: SiteConfig = {
   },
   booking: { externalUrl: null },
   priceRange: null,
-  legal: { reviewed: false, lastUpdated: null, operatorName: null },
+  legal: { reviewed: true, lastUpdated: null, operatorName: null },
 };
 
 // ---------------------------------------------------------------------------

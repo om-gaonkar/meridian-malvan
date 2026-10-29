@@ -8,12 +8,19 @@ import { ButtonLink } from "@/components/ui/button";
 import type { NavLink } from "@/types/content";
 import { cn } from "@/lib/utils";
 
-export function HeaderNav({ links, bookingHref }: { links: NavLink[]; bookingHref: string }) {
+export function HeaderNav({
+  links,
+  bookingHref,
+}: {
+  links: NavLink[];
+  bookingHref: string;
+}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
-  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   function handleKeyDown(event: React.KeyboardEvent) {
     if (event.key === "Escape" && open) {
@@ -42,7 +49,7 @@ export function HeaderNav({ links, bookingHref }: { links: NavLink[]; bookingHre
                   {active ? (
                     <span
                       aria-hidden="true"
-                      className="absolute inset-x-0 -bottom-0.5 mx-auto size-1.5 rounded-full bg-sunset"
+                      className="lg:hidden absolute inset-x-0 -bottom-0.5 mx-auto size-1.5 rounded-full bg-sunset"
                     />
                   ) : null}
                 </Link>
@@ -52,9 +59,11 @@ export function HeaderNav({ links, bookingHref }: { links: NavLink[]; bookingHre
         </ul>
       </nav>
 
-      <ButtonLink href={bookingHref} className="hidden min-h-10 px-5 sm:inline-flex">
-        Book your stay
-      </ButtonLink>
+      <div className="hidden lg:block">
+        <ButtonLink href={bookingHref} className="min-h-10 px-5">
+          Book your stay
+        </ButtonLink>
+      </div>
 
       <button
         ref={toggleRef}
@@ -89,13 +98,22 @@ export function HeaderNav({ links, bookingHref }: { links: NavLink[]; bookingHre
                       )}
                     >
                       {link.label}
-                      {active ? <span aria-hidden="true" className="size-2 rounded-full bg-sunset" /> : null}
+                      {active ? (
+                        <span
+                          aria-hidden="true"
+                          className="size-2 rounded-full bg-sunset"
+                        />
+                      ) : null}
                     </Link>
                   </li>
                 );
               })}
             </ul>
-            <ButtonLink href={bookingHref} className="mt-2 w-full" onClick={() => setOpen(false)}>
+            <ButtonLink
+              href={bookingHref}
+              className="mt-2 w-full"
+              onClick={() => setOpen(false)}
+            >
               Book your stay
             </ButtonLink>
           </nav>
